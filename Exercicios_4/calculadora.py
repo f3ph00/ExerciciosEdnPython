@@ -1,25 +1,25 @@
 '''
 1 - Criar um código que faça uma calculadora que tenha as operações básicas(+,-,*,/).
 '''
-tabuada = int(input('Qual tabuada você quer? ex:1 '))
-operacao = int(input('Operação [1] +, [2] -, [3] *, [4] /'))
-numeros = list(range(1, 11))
-
-if operacao == 1:
-    print(f"Tabuada de adição do {tabuada}")
-    for i in numeros:
-        print(f"{tabuada} + {i} = {tabuada + i}")
-elif operacao == 2:
-    print(f"Tabuada de subtração do {tabuada}")
-    for i in numeros:
-        print(f"{tabuada} - {i} = {tabuada - i}")
-elif operacao == 3:
-    print(f"Tabuada de multiplicação do {tabuada}")
-    for i in numeros:
-        print(f"{tabuada} * {i} = {tabuada * i}")
-elif operacao == 4:
-    print(f"Tabuada de divisão do {tabuada}")
-    for i in numeros:
-        print(f"{tabuada} / {i} = {tabuada / i}")
-else:
-    print("Operação inválida. Escolha entre 1, 2, 3 ou 4.")
+while True:
+    try:
+        numero1 = int(input("Digite o primeiro número: "))
+        numero2 = int(input("Digite o segundo número: "))
+        operacao = input("Digite a operação a ser realizada (+, -, *, /): ")
+        if operacao == "+":
+            resultado = numero1 + numero2
+        elif operacao == "-":
+            resultado = numero1 - numero2
+        elif operacao == "*":
+            resultado = numero1 * numero2
+        elif operacao == "/":
+            resultado = numero1 / numero2
+        else:
+            print("Erro: operação inválida.\n")
+            continue
+        print("Resultado: ", resultado)
+        break
+    except ValueError:
+        print("Erro: digite apenas números.\n")
+    except ZeroDivisionError:
+        print("Erro: não é permitido divisão por ZERO.\n")
